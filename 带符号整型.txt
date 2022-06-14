@@ -1,0 +1,13 @@
+//5.带符号整型
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	short a = -1;
+	unsigned short y = a;
+	unsigned long x = a;
+	cout << y << ", " << a << endl;
+	cout << x << ", " << a << endl;
+	return 0;
+}

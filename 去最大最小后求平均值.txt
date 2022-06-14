@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	double i = 0;
+	double num,ave;
+	double bi=0, sm=0,sum=0;
+	do{
+		cin >> num;
+		
+		i++;
+		if (i == 1)
+		{
+			bi = num;
+			sm = num;
+		}
+		else
+		{
+			if (num > bi)
+			{
+				bi = num;
+			}
+			if (num < sm)
+			{
+				sm = num;
+			}
+		}
+		sum += num;
+		
+	} while (cin.get() != '\n');
+	ave = (sum - bi - sm) / (i - 2);
+	cout << i << ", " << sm << ", " << bi << ", " << ave << endl;
+		
+
+	return 0;
+}

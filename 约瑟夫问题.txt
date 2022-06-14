@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+struct Student
+{
+	int name = 0;
+	int number = 0;
+};
+Student stu[100000];
+int main()
+{
+	int m, n;
+	int k = 1, d = 1;
+	while (cin >> m >> n)
+	{
+		for (int i = 1; i <= m; i++)
+		{
+			stu[i].name = i;
+		}
+		int m0 = m;
+		while (1)
+		{	
+			for (int j = 1; j <= n; j++)
+			{
+				if (k == m + 1)
+				{
+					k = 1;
+				}
+				if (stu[k].name == 0)
+				{
+					j--;
+					k++;
+					continue;
+				}
+				stu[k].number = j;
+				k++;
+			}
+			k--;
+			stu[k].name = 0;
+			m0--;
+			if (m0 == 0)
+			{
+				break;
+			}
+		}
+		cout <<"Case "<<d<<": "<<m<<", "<<n<<", "<< k << endl;
+		k = 1;
+		d++;
+		for (int i = 1; i <= m; i++)
+		{
+			stu[i].name = 0;
+			stu[i].number = 0;
+		}
+	}
+	return 0;
+}

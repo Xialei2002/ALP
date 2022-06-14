@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a, b, c, ans;
+	int r=0;
+	string m, n;
+	cin >> a >> m >> b >> n >> c;
+	if (m == "+")
+	{
+		ans = a + b;
+	}
+	else if (m == "-")
+	{
+		ans = a - b;
+	}
+	else if (m == "*")
+	{
+		ans = a * b;
+	}
+	else if (m == "/")
+	{
+		ans = a / b;
+		r = a % b;
+	}
+	if (ans == c and r == 0)
+	{
+		cout << "正确" << endl;
+	}
+	else
+	{
+		cout << "错误" << endl;
+	}
+
+	return 0;
+}

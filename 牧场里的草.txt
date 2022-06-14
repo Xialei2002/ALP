@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a1, a2, d1, d2, npd;
+	cin >> a1 >> d1 >> a2 >> d2;
+	npd = (a1*d1 - a2*d2) / (d1 - d2);
+	cout << npd;
+
+	return 0;
+}

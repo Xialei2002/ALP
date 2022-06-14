@@ -1,0 +1,33 @@
+#include<iostream>
+#include<stdio.h>
+#include<cmath>
+#pragma warning(disable : 4996)
+using namespace std;
+
+int main()
+{
+	int a = 0, b = 0, count1 = 1,d=0;
+	while (scanf("%d", &a) != EOF)
+	{
+		d++;
+		int temp = a;
+		while (temp >= 10)
+		{
+			temp /= 10;
+			count1++;
+		}
+		b = a * a - a;
+		double c = pow(10.0, (double)count1);
+		cout << "Case " << d << ": " << a << ", ";
+		if (b % (int)c == 0)
+		{
+			cout << "Yes" << endl;
+		}
+		else
+		{
+			cout << "No" << endl;
+		}
+		count1 = 1;
+	}
+	return 0;
+}

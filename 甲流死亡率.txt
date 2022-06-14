@@ -1,0 +1,22 @@
+//13.甲流死亡率
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int diagn=0, death=0;
+	double drate1=0.0;
+	cin >> diagn >> death;
+	if (diagn != 0)
+	{
+		drate1 = (death *100.0)/ diagn;
+	}
+	else
+	{
+		drate1 = 0;
+	}
+	printf("%0.3lf",drate1);
+	printf("%%");
+
+	return 0;
+}

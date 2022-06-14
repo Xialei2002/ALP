@@ -1,0 +1,20 @@
+/3.算术平均值和几何平均值
+//求5个给定数的算术平均值和几何平均值
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	double a, b, c, d, e;
+	cin >> a >> b >> c >> d >> e;
+	double ss = (a + b + c + d + e) / 5;
+	double jh1 = a * b * c * d * e;
+	double jh2 = pow(jh1, 1.0 / 5);
+	printf("%0.1lf", ss);
+	printf(", ");
+	printf("%0.1lf", jh2);
+	printf("\n");
+
+	return 0;
+}

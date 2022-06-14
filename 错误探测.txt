@@ -1,0 +1,191 @@
+//#include<iostream>
+//using namespace std;
+//
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	int const v = n;
+//	int* p = new int[v*v];
+//	for (int i = 0; i < v*v; i++)
+//	{
+//		cin >> p[i];
+//	}
+//	//判断行
+//	int* judh = new int[v];
+//	bool resulth =true;
+//	for (int i = 0; i < v*v; i++)
+//	{
+//		judh[i] = 0;
+//	}
+//
+//	for (int i = 0; i < v ; i++)
+//	{
+//		for (int j = i*v; j < v*(i+1); j++)
+//		{
+////			cout << j << " ";
+//			/*if (p[j] == 1)
+//			{
+//				judh[i] ++;
+//			}*/
+//		}
+////		cout << "第" << i << "行:" << judh[i] << endl;
+//	}
+//	for (int i = 0; i < v; i++)
+//	{
+//		cout << judh[i] << endl;
+//		if (judh[i] %2 != 0)
+//		{
+//			resulth = false;
+//		}
+//	}
+//	//判断列
+//	int* judl = new int[v];
+//	bool resultl = true;
+//	for (int i = 0; i < v ; i++)
+//	{
+//		judl[i] = 0;
+//	}
+//	for (int i = 0; i < v ; i++)
+//	{
+//		for (int j = i; j <= v*(v-2)+i; j += v)
+//		{
+//			cout << j << " ";
+//			/*if (p[j] == 1)
+//			{
+//				judl[i]++;
+//			}*/
+//		}
+//	}
+//	for (int i = 0; i < v; i++)
+//	{
+//		if (judl[i] % 2 == 0)
+//		{
+//			resultl = true;
+//		}
+//	}
+//	cout << resulth << " " << resultl;
+//	if (resulth and resultl)
+//	{
+//		cout << "OK" << endl;
+//	}
+//	else
+//	{
+//		cout << "不OK" << endl;
+//	}
+//	delete[] p;
+//	delete[] judh;
+//	delete[] judl;
+//
+//	return 0;
+//
+//}
+//
+////#include<iostream>
+////
+////
+////using namespace std;
+////
+////int main()
+////{
+////	int m, n;
+////	cin >> m >> n;
+////	int* p = new int[n*m];
+////	for(int i=0;i<n*m;i++)
+////	{
+////		cin >> p[i];
+////	}
+////
+////	return 0;
+////}
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	int* p = new int[n * n];
+	for (int i = 0; i < n * n; i++)
+	{
+		cin >> p[i];
+	}
+
+	int* judh = new int[n];
+	for (int i1 = 0; i1 < n; i1++)
+	{
+		int sum1 = 0;
+		for (int i2 = 0; i2 < n; i2++)
+		{
+			if (p[i1 * n + i2] == 1)
+			{
+				sum1++;
+			}
+		}
+		judh[i1] = sum1;
+	}
+	int* judl = new int[n];
+	for (int j1 = 0; j1 < n; j1++)
+	{
+		int sum2 = 0;
+		for (int j2 = 0; j2 < n; j2++)
+		{
+			if (p[j2 * n + j1] == 1)
+			{
+				sum2++;
+			}
+		}
+		judl[j1] = sum2;
+	}
+	int* s1 = new int[n];
+	int* s2 = new int[n];
+	int signh = 0;
+	for (int k = 0; k < n; k++)
+	{
+		if (judh[k] % 2 != 0)
+		{
+			signh--;
+			s1[k] = -1;
+		}
+	}
+	int signl = 0;
+	for (int l = 0; l < n; l++)
+	{
+		if (judl[l] % 2 != 0)
+		{
+			signl--;
+			s2[l] = -1;
+		}
+	}
+	if (signh == 0 and signl == 0)
+	{
+		cout << "OK" << endl;
+	}
+	else
+	{
+		if (signl == -1 and signh == -1)
+		{
+			int signx = 0, signy = 0;
+			for (int b = 0; b < n; b++)
+			{
+				if(s1[b]==-1)
+				{
+					signx=b;
+				}
+				if (s2[b] == -1)
+				{
+					signy = b;
+				}
+			}
+			cout << signx+1 << " " << signy+1 << endl;
+		}
+		else
+		{
+			cout << "Corrupt" << endl;
+		}
+	}
+	delete[] p,s1,s2,judl,judh;
+
+	return 0;
+}

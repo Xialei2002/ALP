@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+void judge_floor(int floorn, int &count)
+{
+	if (floorn == 0)
+	{
+		count++;
+		return;
+	}
+	else if (floorn == 1)
+	{
+		judge_floor(floorn-1, count);
+	}
+	else
+	{
+		judge_floor(floorn - 2, count);
+		judge_floor(floorn - 1, count);
+	}
+
+}
+
+int count_floor(int n)
+{
+	int count = 0;
+	judge_floor(n, count);
+	return count;
+
+}
+
+int main()
+{
+	int n;
+	while (scanf("%d", &n) != EOF)
+	{
+		cout << count_floor(n) << endl;
+	}
+	return 0;
+}

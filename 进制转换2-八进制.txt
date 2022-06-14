@@ -1,0 +1,29 @@
+//八进制
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	int list1[100];
+	int j = 0;
+	cin >> n;
+	while (1)
+	{
+		list1[j] = n % 8;
+		n =n/8;
+		j++;
+		if (n == 0)
+		{
+			break;
+		}
+	}
+	j--;
+	for (; j >= 0; j--)
+	{
+		cout<<list1[j];
+	}
+
+		return 0;
+}
+

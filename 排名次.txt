@@ -1,0 +1,63 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+struct Stu
+{
+	double score=0;
+	int rank=0;
+};
+
+double arr[1001] = { 0 };
+int ranking[1001] = { 0 };
+
+int main()
+{
+	double a;
+	int k = 0, d = 1;
+	Stu student[1001];
+	while (!cin.eof())
+	{
+		cin >> a;
+		arr[k] = a;
+		student[k].score = arr[k];
+		k++;
+		if (cin.get() != '\n')
+		{
+			continue;
+		}
+		sort(arr, arr + k, greater<double>());
+		ranking[0] = 1;
+		for (int i = 1; i < k; i++)
+		{
+			if (arr[i] == arr[i - 1])
+			{
+				ranking[i] = ranking[i-1];
+			}
+			else
+			{
+				ranking[i] = i+1;
+			}
+		}
+		
+		for (int j = 0; j <k; j++)
+		{
+			for (int l = 0; l < k; l++)
+			{
+				if (student[l].score == arr[j])
+				{
+					student[l].rank = ranking[j];
+				}
+			}
+		}
+		cout << "Case " << d << ":" << endl;
+		for (int m = 0; m < k-1; m++)
+		{
+			cout <<  student[m].rank<<", ";
+		}
+		cout << student[k - 1].rank << endl;
+		k = 0;
+		d++;
+	}
+	return 0;
+}

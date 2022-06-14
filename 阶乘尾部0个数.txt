@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include<iostream>
+#pragma warning(disable : 4996)
+using namespace std;
+
+int main()
+{
+    long long a = 0, sum = 0, temp = 0, d = 1;
+    while (scanf("%lld", &a) != EOF)
+    {
+        temp = a;
+        for (long long i = 0; temp != 0; i++)
+        {
+            temp /= 5;
+            sum += temp;
+        }
+        cout << "Case " << d << ": ";
+        printf("%lld", a);
+        printf(", ");
+        printf("%lld\n", sum);
+        sum = 0;
+        d++;
+    }
+    return 0;
+}

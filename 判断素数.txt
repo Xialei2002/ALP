@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include<iostream>
+#pragma warning(disable : 4996)
+using namespace std;
+
+int main()
+{
+    int a;
+    int ident = 0, d = 1;
+    while (scanf("%d", &a) != EOF)
+    {
+        for (int i = 2; i < (a+2)/2; i++)
+        {
+            if (a % i == 0)
+            {
+                ident = 1;
+            }
+        }
+        if (ident == 1 )
+        {
+            cout << "Case " << d << ": "<<"Number ";
+            printf("%d", a);
+            printf(" is not prime.\n");
+        }
+        else if(ident ==0 and a != 1)
+        {
+            cout << "Case " << d << ": " << "Number ";
+            printf("%d", a);
+            printf(" is prime.\n");
+        }
+        else
+        {
+            cout << "Case " << d << ": " << "Number ";
+            printf("%d", a);
+            printf(" is not prime.\n");
+        }
+        ident = 0;
+        d++;
+    }
+    return 0;
+}

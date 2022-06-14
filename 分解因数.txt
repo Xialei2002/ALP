@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int n = 0, a = 0, temp = 0, d = 0, num = 0,sum=0;
+	cin >> n;
+	while (num <= n)
+	{
+		sum = 0;
+		temp = 0;
+		d = 0;
+
+		cin >> a;
+		temp = a;
+		for (int i = 2; i <= (a+1)/2; i++)
+		{
+			if (temp % i == 0)
+			{
+				temp /= i;
+				if (temp % i == 0 and temp / i !=1)
+				{
+					i--;
+				}
+				d++;
+			}
+		}
+		sum = pow((double)2, (double)d );
+		cout << sum << endl;
+
+	}
+
+	return 0;
+}

@@ -1,0 +1,56 @@
+//12.进制换算
+//十六进制
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	int list1[100];
+	int j = 0;
+	cin >> n;
+	while (1)
+	{
+		list1[j] = n % 16;
+		n =n/16;
+		j++;
+		if (n == 0)
+		{
+			break;
+		}
+	}
+	j--;
+	for (; j >= 0; j--)
+	{
+		if (list1[j] == 15)
+		{
+			cout << "F";
+		}
+		else if (list1[j] == 14)
+		{
+			cout << "E";
+		}
+		else if (list1[j] == 13)
+		{
+			cout << "D";
+		}
+		else if (list1[j] == 12)
+		{
+			cout << "C";
+		}
+		else if (list1[j] == 11)
+		{
+			cout << "B";
+		}
+		else if (list1[j] == 10)
+		{
+			cout << "A";
+		}
+		else
+		{
+			cout << list1[j];
+		}
+	}
+
+		return 0;
+}

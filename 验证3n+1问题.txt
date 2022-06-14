@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a,num;
+    int d = 1;
+	do
+	{
+		
+		cin >> a;
+		int temp = a;
+		if (a != 0 and a != 1)
+		{
+			for (int i = 1; a != 1; i++)
+			{
+				if (a % 2 == 1)
+				{
+					a = 3 * a + 1;
+				}
+				else
+				{
+					a /= 2;
+				}
+				num = i;
+			}
+		}
+		else if (a == 1)
+		{
+			num = 0;
+		}
+		else
+		{
+			num = -1;
+		}
+		cout << "Case "<<d<<": "<<temp<<", "<<num << endl;
+		d++;
+	} while (cin.get() != '\n');
+
+	return 0;
+}

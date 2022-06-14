@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+
+int arr[1001] = { 0 };
+int a = 0, n = 0;
+
+int searching(int left, int right)
+{
+	int temp = (left + right) / 2;
+	if (a == arr[temp])
+	{
+		return temp;
+	}
+	else if (temp + 1 <= n - 1)
+	{
+		if (a == arr[temp + 1])
+		{
+			return temp + 1;
+		}
+	}
+
+	if (a != arr[temp] and (temp == left or temp==right))
+	{
+		return -1;
+	}
+	else if (a > arr[temp])
+	{
+		searching( (left + right) / 2, right);
+	}
+	else if(a<arr[temp])
+	{
+		searching( left, (left + right) / 2);
+	}
+
+}
+
+int main()
+{
+	int b = 0;
+	int d = 1;
+	while (!cin.eof())
+	{
+		cin >> a;
+		while (cin >> b)
+		{
+			arr[n] = b;
+			n++;
+			if (cin.get() != '\n')
+			{
+				continue;
+			}
+			cout << "Case " << d << ": "<<a<<", " << searching(0, n - 1) << endl;
+			d++;
+			break;
+		}
+		n = 0;
+		memset(arr, 0, sizeof(arr));
+
+	}
+	return 0;
+}

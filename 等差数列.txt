@@ -1,0 +1,16 @@
+//9.等差数列
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a1=0,a2=0,n=0,num=0,d=0;
+	cin>>a1>>a2>>n;
+	d=a2-a1;
+	if(-100 <= a1 and a2 <= 100 and 0 < n <= 1000)
+	{
+		num=a1+(n-1)*d;
+	}
+	
+	return 0；
+}

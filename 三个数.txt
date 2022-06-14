@@ -1,0 +1,16 @@
+//1.三个数
+//对三个数求平均数、乘积
+//平均数一般可用double型
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	double a = 0, b = 0, c = 0, d = 0, e = 0;
+	cin >> a >> b >> c;
+	d = (a + b + c) / 3;
+	e = a * b * c;
+	cout << d << " " << e << endl;
+
+	return 0;
+}

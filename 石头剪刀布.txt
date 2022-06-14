@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a;
+	cin >> a;
+	int k = 0;
+	while (k < a)
+	{
+		string m;
+		string n;
+		cin >> m >> n;
+		if (m == n)
+		{
+			cout << "Tie" << endl;
+		}
+		else
+		{
+			if (m == "Rock" and n == "Paper")
+			{
+				cout << "Player2" << endl;
+			}
+			else if (n == "Rock" and m == "Paper")
+			{
+				cout << "Player1" << endl;
+			}
+			else if (m == "Rock" and n == "Scissors")
+			{
+				cout << "Player1" << endl;
+			}
+			else if (n == "Rock" and m == "Scissors")
+			{
+				cout << "Player2" << endl;
+			}
+			else if (m == "Paper" and n == "Scissors")
+			{
+				cout << "Player2" << endl;
+			}
+			else if (n == "Paper" and m == "Scissors")
+			{
+				cout << "Player1" << endl;
+			}
+		}
+		k++;
+	}
+	return 0;
+}

@@ -1,0 +1,111 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int main()
+{
+	//2016年日历  0.平日 1.节假日 2.盛大开幕期 3.周末 4.暑期
+	int cal[366];
+	int d1 = 0;
+	while (d1 <= 365)
+	{
+		if ((d1 >= 0 and d1 <= 2) or (d1 >= 37 and d1 <= 43) or (d1 >= 92 and d1 <= 94) or (d1 >= 160 and d1 <= 162) or (d1 >= 258 and d1 <= 260) or (d1 >= 274 and d1 <= 280))//节假日
+		{
+			cal[d1]=1;
+		}
+		else
+		{
+			cal[d1] = 0;
+		}
+		d1++;
+	}
+
+	for (int i3 = 1; i3 <= 365; i3 += 7)//周六
+	{
+		cal[i3] = 3;
+	}
+	for (int i4 = 2; i4 <= 365; i4 += 7)//周日
+	{
+		cal[i4] = 3;
+	}
+	for (int d2 = 0; d2 <= 365; d2++)//节假日调整
+	{
+		if (d2 == 36 or d2 == 44 or d2 == 163 or d2 == 261 or d2 == 281 or d2 == 282)
+		{
+			cal[d2] = 0;
+		}
+	}
+	for (int i2 = 167; i2 <= 181; i2++)//盛大开幕期
+	{
+		cal[i2] = 2;
+	}
+	for (int i5 = 182; i5 <= 243; i5++)//暑期
+	{
+		cal[i5] = 4;
+	}
+
+	//输入个人信息
+	int byear, bmonth, bday, inm, ind, ttype,scal;
+	double height, pay;
+	cout << "您出生的年、月、日分别是？（输入格式：年 月 日）" << endl;
+	cin >> byear >> bmonth >> bday;
+	cout << "您的身高是？（m）"<<endl;
+	cin >> height;
+	cout << "您的入园日期是几月？几日？（输入格式：月 日）"<<endl;
+	cin >> inm >> ind;
+	cout << "您希望购买？单日票：1  两日联票：2（请输入对应序号）"<<endl;
+	cin >> ttype;
+
+	//将入园日期换算为数组下标
+	switch (inm)
+	{
+		case 1:scal = -1; break; //12月->1月
+		case 2:scal = 30; break;
+		case 3:scal = 59; break;
+		case 4:scal = 90; break;
+		case 5:scal = 120; break;
+		case 6:scal = 151; break;
+		case 7:scal = 181; break;
+		case 8:scal = 212; break;
+		case 9:scal = 243; break;
+		case 10:scal = 273; break;
+		case 11:scal = 304; break;
+		case 12:scal = 334; break;
+	}
+	scal =scal+ ind;
+
+	//判断优惠情况
+	if (cal[scal] != 0)//判断平日票价与高峰票价
+	{
+		pay = 499.0;
+
+	}
+	else
+	{
+		pay = 370.0;
+	}
+	//ps：票务网站的75折经过四舍五入
+	if (2016 - byear > 65 or (2016 - byear == 65 and inm - bmonth > 0) or (2016 - byear == 65 and inm - bmonth == 0 and ind - bday >= 0) or (height > 1.0 and height <= 1.4))
+	{
+		if (cal[scal] == 0)
+		{
+			pay = 280.0;
+		}
+		else
+		{
+			pay = 375.0;
+		}
+	}
+	if (height > 0 and height <= 1.0 )
+	{
+		pay = 0;
+	}
+	//计算票价
+	if (ttype == 2)
+	{
+		pay = 0.95 * 2 * pay;
+	}
+	cout << "您所需支付的费用为：" << fixed << setprecision(2) << pay << "元"<<endl;
+
+	return 0;
+}

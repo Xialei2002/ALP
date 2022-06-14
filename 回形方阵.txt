@@ -1,0 +1,75 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+int arr[100] = { 0 };
+int n;
+
+void number0(int k)
+{
+	for (int i = k-1; i <= n-k; i++)
+	{
+		arr[i] = k;
+	}
+	for (int j = 0; j < n-1; j++)
+	{
+		cout << arr[j] << " ";
+	}
+	cout << arr[n - 1] << endl;
+}
+
+
+
+void number1(int k)
+{
+	for (int i = k - 1; i <= n - k; i++)
+	{
+		arr[i] = k;
+	}
+	for (int j = 0; j < n - 1; j++)
+	{
+		cout << arr[j] << " ";
+	}
+	cout << arr[n - 1] << endl;
+
+}
+
+int main()
+{
+	int d = 1;
+	while (cin >> n)
+	{
+		memset(arr, 1, sizeof(arr));
+		cout << "Case " << d << ":" << endl;
+		if (n % 2 == 0)
+		{
+			for (int i = 1; i <= n / 2; i++)
+			{
+				number0(i);
+			}
+			for (int j = n / 2; j >= 1; j--)
+			{
+				number0(j);
+			}
+
+		}
+		else
+		{
+			for (int i = 1; i <= n / 2; i++)
+			{
+				number1(i);
+			}
+			arr[n / 2] = n / 2 + 1;
+			for (int j = 0; j < n - 1; j++)
+			{
+				cout << arr[j] << " ";
+			}
+			cout << arr[n - 1] << endl;
+			for (int j = n / 2; j >= 1; j--)
+			{
+				number1(j);
+			}
+		}
+		d++;
+	}
+	return 0;
+}

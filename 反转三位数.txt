@@ -1,0 +1,18 @@
+//2.反转三位数
+//321→123
+//利用int型的/为整除求得每一位上的数
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a = 0;
+	cin >> a;
+	int hun = a / 100;
+	int ten = (a - 100 * hun) / 10;
+	int one = a - 100 * hun - 10 * ten;
+	int b = 100 * one + 10 * ten + 1 * hun;
+	cout << b << endl;
+
+	return 0;
+}

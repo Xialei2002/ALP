@@ -1,0 +1,23 @@
+#include<iostream>
+#include<stdio.h>
+#pragma warning(disable : 4996)
+using namespace std;
+
+int main()
+{
+	int n = 0, d = 0;
+	while (scanf("%d", &n) != EOF)
+	{
+		d++;
+		int t = 0, sum = 0;
+		for (int i = 0; 5 * i <= n; i++)
+		{
+			t = (n - 5 * i) / 2 + 1;
+			sum += t;
+		}
+		cout << "Case " << d << ": " << n << ", " << sum << endl;
+	}
+}
+/*
+一般而言可以使用二重循环，外层5分，内层2分，当5*五分个数+2*二分个数<=n，成立，个数+1。
+*/

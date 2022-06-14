@@ -1,0 +1,31 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+	int x, y;
+	cin >> x >> y;
+	int* p1 = new int[x*y];
+	int* p2 = new int[x*y];
+	for (int i = 0; i < x*y; i++)
+	{
+		cin >> p1[i];
+	}
+	for (int i = 0; i < x * y; i++)
+	{
+		cin >> p2[i];
+	}
+	double dif = 0;
+	for (int i = 0; i < x * y; i++)
+	{
+		if (p1[i] == p2[i])
+		{
+			dif++;
+		}
+	}
+	double k= dif / (double)(x * y)*100;
+	printf("%0.2lf", k);
+	return 0;
+
+}

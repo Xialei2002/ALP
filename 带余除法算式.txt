@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int m, n, q, r;
+	cin >> m >> n;
+	q = m / n;
+	r = m % n;
+	if (r == 0)
+	{
+		cout << m << " = " << q << "*" << n << endl;
+	}
+	else
+	{
+		cout << m << " = " << q << "*" << n << " + " << r << endl;
+	}
+
+	return 0;
+}

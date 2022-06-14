@@ -1,0 +1,16 @@
+//11.圆柱体表面积和体积
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	double h=1, r=1;
+	cin >> h >> r;
+	double s = 2 * r * h * 3.1415926 + 2 * r * r * 3.1415926;
+	double v = r * r * h * 3.1415926;
+	printf("%0.4lf", s);
+	printf(", ");
+	printf("%0.5lf", v);
+
+	return 0;
+}

@@ -1,0 +1,73 @@
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+	int n;
+	cin >> n;
+	bool jud0=true;
+	for (int a = 3; a <= n / 2; a++)
+	{
+		if ((n - 4) % a == 0)
+		{
+			jud0 = false;
+		}
+	}
+	if (jud0)
+	{
+		cout << 2 << " " << 2 << " " << n - 4 << endl;
+		return 0;
+	}
+	for (int i1 = 3; i1 < n; i1 +=2)
+	{
+		bool jud1 = true;
+		for (int j1 = 2; j1 < i1; j1 ++)
+		{
+			if (i1 % j1 == 0)
+			{
+				jud1 = false;
+			}
+		}
+		if (jud1)
+		{
+			for (int i2 = i1; i2 < n; i2 +=2)
+			{
+				//cout << i1 << " ";
+				//cout <<i1<<" "<< i2 << endl;
+				bool jud2 = true;
+				for (int j2 = 2; j2 < i2; j2 ++)
+				{
+					if (i2 % j2 == 0)
+					{
+						//cout << i2 << endl;
+						jud2 = false;
+					}
+				}
+				if (jud2)
+				{
+					//cout << i1 << " " << i2 << endl;
+					//cout << i1 << " ";
+					for (int i3 = i2;  i3 < n; i3 +=2)
+					{
+						bool jud3 = true;
+						for (int j3 = 2; j3 < i3; j3 ++)
+						{
+							if (i3 % j3 == 0)
+							{
+								jud3 = false;
+							}
+						}
+						if (i1 + i2 + i3 == n  and jud3 )
+						{
+							cout << i1 << " " << i2 << " " << i3 << endl;
+							return 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return 0;
+}
